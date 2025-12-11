@@ -14,3 +14,12 @@ class Settings:
         self.food_width = 20
         self.food_height = 20
         self.food_color = (239, 118, 123)
+
+        self.pause_button_x = 870
+        self.pause_button_y = 30
+
+        self.replay_button_x = 800
+        self.replay_button_y = 30
+
+        self.pause1_button_x = 450
+        self.pause1_button_y = 300
