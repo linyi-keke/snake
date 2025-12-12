@@ -16,11 +16,11 @@ class Replay:
         # 设置按钮位置
         self.rect.center = (self.setting.replay_button_x, self.setting.replay_button_y)
 
-    def is_clicked(self, event):
-        # 检测按钮是否被点击（当前为空实现）
-        if event.type == pygame.MOUSEBUTTONDOWN and self.rect.collidepoint(event.pos):
-            return True
-        return False
+    def is_clicked(self, game):
+        game.snake.bodies.clear()  # 蛇身长度清零
+        # 重置蛇头坐标
+        game.snake.bodies.append((game.setting.screen_width / 2, game.setting.screen_height / 2))
+        game.food.randomize_position(game.snake)
 
     def draw(self):
         # 在屏幕上绘制重玩按钮

@@ -66,10 +66,7 @@ class Game:
                     # 点击继续按钮（暂停界面的大按钮）
                     self.pause_switch = True
                 elif self.replay.rect.collidepoint(event.pos):
-                    self.snake.bodies.clear()  # 蛇身长度清零
-                    # 重置蛇头坐标
-                    self.snake.bodies.append((self.setting.screen_width / 2, self.setting.screen_height / 2))
-                    self.food.randomize_position(self.snake)  # 食物位置重置
+                    self.replay.is_clicked(self)
 
     def toggle_pause(self):
         # 切换暂停状态

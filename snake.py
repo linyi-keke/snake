@@ -55,14 +55,16 @@ class Snake:
         # 边界检测：撞墙则游戏结束
         if (head_x < 0 or head_x >= self.setting.screen_width or
                 head_y < 0 or head_y >= self.setting.screen_height):
-            game.running = False
+            game.pause_switch = False
+            game.replay.is_clicked(game)
             return
 
         new_head = (head_x, head_y)
 
         # 碰撞检测：撞到自己则游戏结束
         if new_head in self.bodies:
-            game.running = False
+            game.pause_switch = False
+            game.replay.is_clicked(game)
             return
 
         # 在身体列表开头插入新的头部位置
