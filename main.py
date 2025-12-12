@@ -5,6 +5,7 @@ from food import Food
 from pause_button import Pause
 from replay_button import Replay
 from pause_button_1 import Pause1
+from score import Score
 
 
 class Game:
@@ -15,8 +16,8 @@ class Game:
         # 创建游戏窗口
         self.screen = pygame.display.set_mode((self.setting.screen_width, self.setting.screen_height))
         self.screen_rect = self.screen.get_rect()  # 获取屏幕矩形区域
-        pygame.display.set_caption("贪吃蛇2")  # 设置窗口标题
 
+        pygame.display.set_caption("贪吃蛇2")  # 设置窗口标题
         icon = pygame.image.load('窗口图标.png')  # 创建窗口图标
         pygame.display.set_icon(icon)  # 更改窗口图标
 
@@ -35,12 +36,14 @@ class Game:
         self.pause = Pause(self)
         self.replay = Replay(self)
         self.pause1 = Pause1(self)
+        self.score = Score(self)
 
     def event_track(self):
         # 事件处理函数
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 # 处理退出事件
+                self.score.write_score(game)
                 self.running = False
 
             elif event.type == self.move_event and self.pause_switch:

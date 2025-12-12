@@ -56,6 +56,7 @@ class Snake:
         if (head_x < 0 or head_x >= self.setting.screen_width or
                 head_y < 0 or head_y >= self.setting.screen_height):
             game.pause_switch = False
+            game.score.write_score(game)
             game.replay.reset_parameters(game)
             return
 
@@ -64,6 +65,7 @@ class Snake:
         # 碰撞检测：撞到自己则游戏结束
         if new_head in self.bodies:
             game.pause_switch = False
+            game.score.write_score(game)
             game.replay.reset_parameters(game)
             return
 
