@@ -16,6 +16,10 @@ class Game:
         self.screen = pygame.display.set_mode((self.setting.screen_width, self.setting.screen_height))
         self.screen_rect = self.screen.get_rect()  # 获取屏幕矩形区域
         pygame.display.set_caption("贪吃蛇2")  # 设置窗口标题
+
+        icon = pygame.image.load('窗口图标.png')  # 创建窗口图标
+        pygame.display.set_icon(icon)  # 更改窗口图标
+
         self.bg_color = self.setting.bg_color  # 背景颜色
         self.clock = pygame.time.Clock()  # 游戏时钟，控制帧率
         self.running = True  # 游戏运行状态
