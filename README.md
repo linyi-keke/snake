@@ -27,7 +27,7 @@
 ├── pause_button.py         # 暂停按钮逻辑（如果存在）
 ├── replay_button.py        # 重玩按钮逻辑（如果存在）
 ├── assets/*.png            # 游戏界面素材图片
-├── README.md               # 项目说明（你正在编辑的文件）
+├── README.md               # 项目说明（你正在阅读的文件）
 ```
 
 ---
