@@ -16,7 +16,7 @@ class Replay:
         # 设置按钮位置
         self.rect.center = (self.setting.replay_button_x, self.setting.replay_button_y)
 
-    def is_clicked(self, game):
+    def reset_parameters(self, game):
         game.snake.bodies.clear()  # 蛇身长度清零
         # 重置蛇头坐标
         game.snake.bodies.append((game.setting.screen_width / 2, game.setting.screen_height / 2))
