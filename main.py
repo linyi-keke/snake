@@ -95,6 +95,7 @@ class Game:
         self.pause.draw()  # 绘制暂停按钮
         self.replay.draw()  # 绘制重玩按钮
         self.pause1.draw(self)  # 绘制暂停界面的大按钮（仅在暂停时显示）
+        self.score.draw_font(self)
 
     def run_game(self):
         # 游戏主循环

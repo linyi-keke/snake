@@ -17,14 +17,28 @@ class Score:
             print(f"写入文件时出错: {e}")
             return False
 
-    def read_score(self):
+    def read_score(self, filename='data.txt'):
         # 每次游戏暂停或者结束时，读取分数
-        pass
+        with open(filename, 'r', encoding='utf-8') as f:
+            items = [line.strip() for line in f if line.strip()]
+        return items
 
-    def font(self):
+    def draw_font(self, game):
         # 每次游戏暂停或者结束时，显示游戏历史最高分、当前分数
-        pass
+        if not game.pause_switch:
+            font = pygame.font.SysFont('simple', 36)
 
-    def draw(self):
-        pass
+            score = self.read_score()
+
+            current_score = font.render(f'score:{len(game.snake.bodies)}', True, (255, 255, 255))
+            self.screen.blit(current_score, (10, 50))
+
+            all_time_high = font.render(f'highest score:{max(score)}', True, (255, 255, 255))
+            self.screen.blit(all_time_high, (10, 90))
+
+
+
+
+
+
 
