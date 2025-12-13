@@ -43,7 +43,7 @@ class Game:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 # 处理退出事件
-                self.score.write_score(game)
+                self.score.write_score(self)
                 self.running = False
 
             elif event.type == self.move_event and self.pause_switch:
@@ -55,6 +55,9 @@ class Game:
                 if event.key == pygame.K_SPACE:
                     # 空格键：切换暂停状态
                     self.toggle_pause()
+                elif event.key == pygame.K_ESCAPE:
+                    self.score.write_score(self)
+                    self.running = False
                 elif event.key == pygame.K_UP:
                     self.snake.change_direction('up')
                 elif event.key == pygame.K_DOWN:
